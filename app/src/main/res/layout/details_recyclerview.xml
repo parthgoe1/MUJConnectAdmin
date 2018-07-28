@@ -1,8 +1,12 @@
-<LinearLayout
+<RelativeLayout
     android:layout_height="wrap_content"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
    android:orientation="horizontal"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/lightGrey"
+    android:id="@+id/mainRel"
+    android:layout_marginBottom="16dip"
+    >
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -11,7 +15,10 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:id="@+id/detailname"
-            android:textColor="@color/black"
+            android:layout_marginLeft="20dip"
+            android:layout_marginBottom="2dip"
+            android:textColor="@color/white"
+            android:textSize="20sp"
             xmlns:android="http://schemas.android.com/apk/res/android">
 
         </TextView>
@@ -20,16 +27,27 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:id="@+id/detailreg"
-            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_marginLeft="20dip"
+            android:textColor="@color/white"
             xmlns:android="http://schemas.android.com/apk/res/android">
 
         </TextView>
 
     </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PAY"
+        android:id="@+id/payButton"
+        android:textColor="@color/lightGrey"
+        android:layout_marginRight="20dip"
+        android:layout_alignParentRight="true"
+        />
 
 
 
-</LinearLayout>
+</RelativeLayout>
 
 
 

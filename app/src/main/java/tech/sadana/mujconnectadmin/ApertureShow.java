@@ -45,7 +45,7 @@ public class ApertureShow extends AppCompatActivity {
 
         progressDialog.show();
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("mujconnect-eab29");
+        databaseReference = FirebaseDatabase.getInstance().getReference("aperture");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
