@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,18 +25,19 @@ public class ApertureShow extends AppCompatActivity {
 
     RecyclerView recyclerView;
 
-    RecyclerView.Adapter adapter ;
+    RecyclerViewAdapter adapter ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aperture_show);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
 
         recyclerView.setHasFixedSize(true);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(ApertureShow.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
+        adapter = new RecyclerViewAdapter(ApertureShow.this, null);
+        recyclerView.setAdapter(adapter);
 
         progressDialog = new ProgressDialog(ApertureShow.this);
 
@@ -49,6 +51,7 @@ public class ApertureShow extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
 
+                Log.w("Aperture", snapshot.toString());
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 
                     Details studentDetails = dataSnapshot.getValue(Details.class);
