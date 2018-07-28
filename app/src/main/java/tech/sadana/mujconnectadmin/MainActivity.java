@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     public void updateUI(FirebaseUser user){
         Intent intent;
         if(user.getEmail().equals("mujaperture@gmail.com")){
-            intent = new Intent(MainActivity.this, Aperture.class);
+            intent = new Intent(MainActivity.this, ApertureShow.class);
 
         }
         else{
