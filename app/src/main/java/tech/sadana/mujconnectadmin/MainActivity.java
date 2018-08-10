@@ -67,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
             intent = new Intent(MainActivity.this, ApertureShow.class);
 
         }
+        else if(user.getEmail().trim().equals("litmus@gmail.com")){
+            intent = new Intent(MainActivity.this, LitmusShow.class);
+
+        }
         else{
             intent = null;
         }

@@ -59,7 +59,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             subject= "Registration Successful for Aperture";
             revoke = "Your Registration is revoked for Aperture";
             mDatabase = FirebaseDatabase.getInstance().getReference("aperture");
-        } else {
+        }
+        else if (email.equals("litmus@gmail.com")) {
+            club = "Litmus";
+            subject= "Registration Successful for Litmus";
+            revoke = "Your Registration is revoked for Litmus";
+            mDatabase = FirebaseDatabase.getInstance().getReference("litmus");
+        }
+        else {
             mDatabase = null;
             club = null;
             subject = null;
