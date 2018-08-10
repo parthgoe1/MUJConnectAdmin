@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#009688</color>
 
 
     <color name="background">#0f1126</color>
@@ -25,5 +25,8 @@
     <color name ="redCard">#ff5252</color>
     <color name = "yellowCard">#ffb74d</color>
     <color name ="defaultCard">#ff424242</color>
+
+    //color round corner
+    <color name ="roundedCorner">#d7eff3</color>
 
 </resources>
