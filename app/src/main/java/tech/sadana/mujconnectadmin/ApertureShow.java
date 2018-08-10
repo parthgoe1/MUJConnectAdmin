@@ -50,7 +50,7 @@ public class ApertureShow extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-
+                list.clear();
                 Log.w("Aperture", snapshot.toString());
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 

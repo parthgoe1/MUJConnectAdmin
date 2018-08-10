@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.emailid);
         password = findViewById(R.id.password);
 
-        String semail = email.getText().toString();
-        String spassword = password.getText().toString();
+        String semail = email.getText().toString().trim();
+        String spassword = password.getText().toString().trim();
         if(semail.isEmpty() || spassword.isEmpty()){
             Toast.makeText(view.getContext(),"Empty Fields",Toast.LENGTH_SHORT).show();
         }
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateUI(FirebaseUser user){
         Intent intent;
-        if(user.getEmail().equals("mujaperture@gmail.com")){
+        if(user.getEmail().trim().equals("mujaperture@gmail.com")){
             intent = new Intent(MainActivity.this, ApertureShow.class);
 
         }

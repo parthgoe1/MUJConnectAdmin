@@ -52,15 +52,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         String email = user.getEmail().toString();
         String club = new String();
         final String subject;
+        final String revoke;
         String body;
         if (email.equals("mujaperture@gmail.com")) {
             club = "Aperture";
             subject= "Registration Successful for Aperture";
+            revoke = "Your Registration is revoked for Aperture";
             mDatabase = FirebaseDatabase.getInstance().getReference("aperture");
         } else {
             mDatabase = null;
             club = null;
             subject = null;
+            revoke = null;
         }
         final Details studentDetails = MainImageUploadInfoList.get(position);
 
@@ -74,19 +77,26 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             holder.Pay.setVisibility(View.GONE);
             holder.StudentNameTextView.setTextColor(Color.parseColor("#96c93d"));
             holder.StudentNumberTextView.setTextColor(Color.parseColor("#96c93d"));
-//            holder.layoutMain.setOnLongClickListener(new View.OnLongClickListener() {
-//                @Override
-//                public boolean onLongClick(View view) {
-//
-//                    mDatabase.child(localReg.toString()).child("paid").setValue("false");
-//                    MainImageUploadInfoList.get(position).setPaid("false");
-//
-//
-//
-//
-//                    return false;
-//                }
-//            });
+            holder.layoutMain.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+
+                    mDatabase.child(localReg.toString()).child("paid").setValue("false");
+                    MainImageUploadInfoList.get(position).setPaid("false");
+
+                    Intent intent = new Intent(Intent.ACTION_SENDTO);
+                    intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+                    intent.putExtra(Intent.EXTRA_EMAIL, new String[] {studentDetails.getEmail()});
+                    intent.putExtra(Intent.EXTRA_SUBJECT,subject );
+                    intent.putExtra(Intent.EXTRA_TEXT,revoke);
+
+                    context.startActivity(intent);
+
+
+
+                    return false;
+                }
+            });
 
 
 
